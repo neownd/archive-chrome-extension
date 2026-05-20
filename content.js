@@ -180,14 +180,27 @@
     return s || null;
   }
 
-  function hostMatches(hostname) {
-    if (!hostname) return false;
+  function matchedSiteFor(hostname) {
+    if (!hostname) return null;
     const h = hostname.toLowerCase();
-    return sites.some((s) => h === s || h.endsWith("." + s));
+    for (const s of sites) {
+      if (h === s || h.endsWith("." + s)) return s;
+    }
+    return null;
   }
 
   function isCurrentHostConfigured() {
-    return hostMatches(location.hostname);
+    return matchedSiteFor(location.hostname) !== null;
+  }
+
+  function isMainDomainHomepage(url, matchedDomain) {
+    const host = url.hostname.toLowerCase();
+    const isBareOrWww = host === matchedDomain || host === "www." + matchedDomain;
+    if (!isBareOrWww) return false;
+    const path = url.pathname || "/";
+    if (path !== "" && path !== "/") return false;
+    if (url.search) return false;
+    return true;
   }
 
   function resolveInternalHref(anchor) {
@@ -204,7 +217,9 @@
       return null;
     }
     if (url.protocol !== "http:" && url.protocol !== "https:") return null;
-    if (!hostMatches(url.hostname)) return null;
+    const matched = matchedSiteFor(url.hostname);
+    if (!matched) return null;
+    if (isMainDomainHomepage(url, matched)) return null;
     return url.toString();
   }
 
