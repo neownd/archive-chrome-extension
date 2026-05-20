@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Archive.is Chooser",
+  "version": "1.1.0",
+  "description": "Beim Klick auf interne Links (z.B. spiegel.de) erscheint ein kleines Auswahlmenü: archive.is, Original im gleichen Tab oder Original im neuen Tab.",
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}

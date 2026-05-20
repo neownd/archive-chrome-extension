@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Archive.is Chooser — Einstellungen</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Domain-Liste</h1>
+      <p class="hint">
+        Auf welchen Websites soll der Chooser aktiv sein? Es werden nur interne
+        Links zu einer dieser Domains abgefangen. Subdomains werden automatisch
+        mitberücksichtigt (z.B. <code>spiegel.de</code> erfasst auch
+        <code>www.spiegel.de</code>).
+      </p>
+
+      <form id="add-form" autocomplete="off">
+        <input
+          id="add-input"
+          type="text"
+          placeholder="z.B. sueddeutsche.de"
+          spellcheck="false"
+          required
+        />
+        <button type="submit">Hinzufügen</button>
+      </form>
+
+      <ul id="list" class="list"></ul>
+
+      <div class="toolbar">
+        <button id="add-defaults" type="button" class="secondary">
+          Standardliste hinzufügen
+        </button>
+      </div>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

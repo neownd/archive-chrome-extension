@@ -1,0 +1,138 @@
+#__archive_chooser_popup__ {
+  position: absolute;
+  z-index: 2147483647;
+  box-sizing: border-box;
+  min-width: 240px;
+  max-width: 360px;
+  padding: 6px;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 8px 28px rgba(15, 23, 42, 0.18);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter,
+    Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.25;
+  user-select: none;
+  transform-origin: top left;
+  animation: __acp_in 110ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes __acp_in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#__archive_chooser_popup__ .__acp_header {
+  padding: 8px 10px 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#__archive_chooser_popup__ .__acp_divider {
+  height: 1px;
+  margin: 4px 8px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+#__archive_chooser_popup__ .__acp_row {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 80ms ease, color 80ms ease;
+}
+
+#__archive_chooser_popup__ .__acp_row:hover,
+#__archive_chooser_popup__ .__acp_row:focus-visible {
+  background: #f1f5f9;
+}
+
+#__archive_chooser_popup__ .__acp_row:active {
+  background: #e2e8f0;
+}
+
+#__archive_chooser_popup__ .__acp_label {
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: -0.005em;
+  color: #0f172a;
+}
+
+#__archive_chooser_popup__ .__acp_meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+}
+
+#__archive_chooser_popup__ .__acp_hint {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+#__archive_chooser_popup__ .__acp_icon {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  opacity: 0.85;
+}
+
+#__archive_chooser_popup__ .__acp_row:hover .__acp_meta,
+#__archive_chooser_popup__ .__acp_row:focus-visible .__acp_meta {
+  color: #1e293b;
+}
+
+@media (prefers-color-scheme: dark) {
+  #__archive_chooser_popup__ {
+    background: #1c1f26;
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 12px 32px rgba(0, 0, 0, 0.5);
+  }
+  #__archive_chooser_popup__ .__acp_header {
+    color: #94a3b8;
+  }
+  #__archive_chooser_popup__ .__acp_divider {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  #__archive_chooser_popup__ .__acp_label {
+    color: #f8fafc;
+  }
+  #__archive_chooser_popup__ .__acp_meta {
+    color: #94a3b8;
+  }
+  #__archive_chooser_popup__ .__acp_row:hover,
+  #__archive_chooser_popup__ .__acp_row:focus-visible {
+    background: rgba(255, 255, 255, 0.06);
+  }
+  #__archive_chooser_popup__ .__acp_row:active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  #__archive_chooser_popup__ .__acp_row:hover .__acp_meta,
+  #__archive_chooser_popup__ .__acp_row:focus-visible .__acp_meta {
+    color: #cbd5e1;
+  }
+}
